@@ -1,4 +1,5 @@
 # Luminar core
+![Tests Status](https://img.shields.io/github/actions/workflow/status/luminar-organization/core/tests.yml?label=Tests)
 
 **Luminar Core** is the foundational package for the Luminar PHP framework, providing the providing essential functionality and core components needed to build applications.
 
