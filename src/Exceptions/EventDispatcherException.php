@@ -2,7 +2,9 @@
 
 namespace Luminar\Core\Exceptions;
 
-class EventDispatcherException
+use Exception;
+
+class EventDispatcherException extends Exception
 {
 
 }

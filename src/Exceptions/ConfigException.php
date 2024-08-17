@@ -2,7 +2,9 @@
 
 namespace Luminar\Core\Exceptions;
 
-class ConfigException
+use Exception;
+
+class ConfigException extends Exception
 {
 
 }
