@@ -17,6 +17,16 @@ class Container
     protected array $instances = [];
 
     /**
+     * @var DependencyInjection $dependencyInjection
+     */
+    protected DependencyInjection $dependencyInjection;
+
+    public function __construct()
+    {
+        $this->dependencyInjection = new DependencyInjection($this);
+    }
+
+    /**
      * @param  string $abstract
      * @param  $concrete
      * @return void
@@ -48,12 +58,14 @@ class Container
             return $this->instances[$abstract];
         }
 
+        var_dump($ab);
+        var_dump($this->bindings);
         $concrete = $this->bindings[$abstract] ?? null;
 
         if(is_callable($concrete)) {
             $object = $concrete($this);
         } elseif(is_string($concrete)) {
-            $object = new $concrete($this);
+            $object = $this->dependencyInjection->build($concrete);
         } else {
             throw new Exception("Service [$abstract] not found ini the container.");
         }
