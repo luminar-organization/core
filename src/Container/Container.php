@@ -53,7 +53,7 @@ class Container
         if(is_callable($concrete)) {
             $object = $concrete($this);
         } elseif(is_string($concrete)) {
-            $object = new $concrete;
+            $object = new $concrete($this);
         } else {
             throw new Exception("Service [$abstract] not found ini the container.");
         }
