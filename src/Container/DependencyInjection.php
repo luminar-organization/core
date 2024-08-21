@@ -35,6 +35,7 @@ class DependencyInjection
      */
     public function build(string $concrete)
     {
+
         $reflector = new ReflectionClass($concrete);
 
         if (!$reflector->isInstantiable()) {
@@ -51,14 +52,13 @@ class DependencyInjection
         $dependencies = [];
 
         foreach ($parameters as $parameter) {
-            $dependency = $parameter->getClass();
+            $dependency = $parameter->getType();
 
             if ($dependency === null) {
                 throw new DependencyInjectionException("Cannot resolve parameter [{$parameter->name}] in [$concrete].");
             }
 
-            var_dump($dependency->name);
-            $dependencies[] = $this->container->resolve($dependency->name);
+            $dependencies[] = $this->container->resolve($dependency->getName());
         }
 
         return $reflector->newInstanceArgs($dependencies);

@@ -58,8 +58,6 @@ class Container
             return $this->instances[$abstract];
         }
 
-        var_dump($ab);
-        var_dump($this->bindings);
         $concrete = $this->bindings[$abstract] ?? null;
 
         if(is_callable($concrete)) {
@@ -75,5 +73,10 @@ class Container
         }
 
         return $object;
+    }
+
+    public function has(string $abstract): bool
+    {
+        return isset($this->bindings[$abstract]) || isset($this->instances[$abstract]);
     }
 }
