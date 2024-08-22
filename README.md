@@ -118,4 +118,4 @@ Luminar Core is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-For more information about Luminar, visit our [website](https://luminar-organization.github.io/)
+For more information about Luminar, visit our [website](https://luminar-organization.github.io/) or [docs](https://projects-17.gitbook.io/luminar-organization/)
